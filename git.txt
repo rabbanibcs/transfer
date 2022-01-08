@@ -1,0 +1,9 @@
+git init  --create a git repo
+git add .
+git add -A  --create stage
+git commit -m 'Done'  -- save all files to git repo
+git branch -M main
+git remote add origin https://github.com/rabbanibcs/college.git
+
+git push -u origin main
+

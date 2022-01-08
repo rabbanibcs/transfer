@@ -1,0 +1,66 @@
+https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
+
+
+
+React lifecycle
+----------------
+----------------
+Each component in React has a lifecycle which you can monitor and manipulate during its three main phases.
+The three phases are: Mounting, Updating, and Unmounting.
+--------------------------------------------------------
+Mounting
+---------
+Mounting means putting elements into the DOM.
+Reareact has four built-in methods that gets called, in this order, when mounting a component:
+
+constructor()-->The constructor() method is called before anything else, when the component is 
+initiated, and it is the natural place to set up the initial state and other initial values.
+The constructor() method is called with the props, as arguments, and you should always start
+ by calling the super(props) before anything else, this will initiate the parent's constructor 
+method and allows the component to inherit methods from its parent (React.Component).
+---------------
+getDerivedStateFromProps()-->The getDerivedStateFromProps() method is called right before rendering the element(s) in the DOM.
+This is the natural place to set the state object based on the initial props.
+--------------
+render()-->This method is required, and is the method that actually outputs the HTML to the DOM.
+
+
+componentDidMount()
+----------------------------------------------------------------------------------------------
+
+pass a var into a string:
+{`https://avatars.dicebear.com/api/human/${seed}.svg`}
+--------------------------------------------------
+convert a javascript object to string
+JSON.stringify(item)
+
+
+Object destructuring
+----------------------
+
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+# only extract title as a variable
+let { title } = options;
+
+alert(title); // Menu
+
+
+# second element is not needed
+let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+alert( title ); // Consul
+
+Template literal:
+<p className={`chat_message ${true?'reciever':null}`}> 
+ <p className={`chat_message ${true && reciever'}`}> 
+
+# did not understand
+{new Date(messages[messages.length-1]?.timestamp.toDate()).toUTCString()}
+{new Date(messages[messages.length-1]?.timestamp?.toDate()).toUTCString()}
+
+

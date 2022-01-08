@@ -1,0 +1,16 @@
+div.container{
+
+background-color: rgb(65, 204, 46);
+padding-bottom: 150px;
+padding-top: 50px;
+width: 80%;
+
+}
+.btn {
+
+border-radius: 0 !important;
+background: #D3E5C8;
+background: -webkit-linear-gradient(top left, #D3E5C8, #9CB9EE);
+background: -moz-linear-gradient(top left, #D3E5C8, #9CB9EE);
+background: linear-gradient(to bottom right, #D3E5C8, #9CB9EE);
+}

@@ -1,0 +1,16 @@
+TextInput 
+	is a Core Component that allows the user to enter text.It has an   
+onChangeText 
+  	prop that takes a function to be called every time the text changed, and an   
+onSubmitEditing
+  	 prop that takes a function to be called when the text is submitted.
+
+ScrollViews
+	 can be configured to allow paging through views using swiping gestures 
+by using the pagingEnabled props. Swiping horizontally between views can also be
+ implemented on Android using the 	ViewPager 	component.
+
+drawerContent#
+Function that returns React element to render as the content of the drawer, for example, navigation items
+
+

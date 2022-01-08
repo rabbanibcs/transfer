@@ -1,0 +1,63 @@
+		#container willplace all the elements in a row(flex-direction:row;)
+display: flex;   
+
+flex-direction:row; 			Main Axis-x
+flex-direction:row-reverse; 		Main Axis-x
+flex-direction:column; 			Main Axis-y
+flex-direction:column-reverse; 		Main Axis-y
+
+ 
+			# different position of elems along x-axis
+justify-content: start;  
+justify-content: end;
+justify-content: center;
+justify-content: space-between;
+justify-content: space-around;
+justify-content: space-evenly;
+
+			# different position of elems along y-axis
+align-items: flex-start   ;
+align-items: flex-end;
+align-items: center;
+align-items: stretch;
+align-items: baseline;
+
+		
+ 		#container will wrap all the elements
+flex-wrap: wrap; 
+
+	# when (flex-wrap: wrap) is active , following props works for two or more rows.
+align-content: flex-start;
+align-content: flex-end;
+align-content: center;
+align-content: space-between;
+align-content: space-around;
+align-content: stretch;
+align-content: space-evenly;
+
+
+
+			# different position of a element along y-axis
+align-self: flex-start ;  
+align-self: flex-end;
+align-self: center;
+align-self: stretch;
+align-self: baseline;
+
+	# n=0 default, elements are arrenged in accending acording n values.
+order:n
+	# elems get parent's div-space with n (ratio)----flex: grow
+flex:n
+
+
+flex-grow: How much of the positive free space does this item get?
+flex-shrink: How much negative free space can be removed from this item?
+flex-basis:  What is the size of the item before growing and shrinking happens?
+
+shorthand
+--------
+flex: grow shrink basis;
+
+
+
+

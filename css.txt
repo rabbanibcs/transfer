@@ -1,0 +1,54 @@
+Display
+------------
+    display: grid;
+    place-items: center; item inside this element will be placed center.
+----------------------
+display: none; is commonly used with JavaScript to hide and show elements.
+	visibility: hidden;  also hides an element.
+display: inline; A common example is making inline <li> elements for horizontal menus.
+display: block; A display property with a value of "block" results ina line break between the two elements.
+display: flex; children elements stand in line.
+flex-direction: column; children elements stand vertical
+flex
+---------------
+flex: 1; full width(push the siblings away) and the child items be the same length, regardless of its content.
+
+
+
+Scalable Vector Graphics (SVG) is an XML-based vector 
+graphics format that can scale to any size without losing clarity.
+
+   background-image: url('https://i.pinimg.com/originals/35/f3/e9/35f3e9c4b86568b4919949a9307da2a9.png');
+    overflow: scroll;
+    min-width: 10vw;
+    width: fit-content;
+
+
+position:sticky;
+top:0;
+
+
+input:focus{
+    outline: none;
+}
+
+
+
+10 Open-Source Login Page Templates Built With HTML & CSS
+---------------------------------------------------------------
+
+https://speckyboy.com/login-pages-html5-css/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

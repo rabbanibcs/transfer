@@ -1,0 +1,10 @@
+Installing 1 other package using npm.
+> npm install --save react-native-vector-icons@
++ react-native-vector-icons@8.1.0
+added 10 packages from 7 contributors, removed 53 packages and audited 1032 packages in 18.123s
+
+30 packages are looking for funding
+  run `npm fund` for details
+
+found 13 vulnerabilities (5 low, 8 moderate)
+  run `npm audit fix` to fix them, or `npm audit` for details

@@ -1,0 +1,14 @@
+h4 {
+
+border-bottom: 1px solid rgb(201, 197, 197);
+padding-bottom: 3px;
+}
+
+#task {
+
+    margin: 2px;
+    font-size: 20px;    
+    border-radius: 0px;
+    font-weight: bold;
+}
+

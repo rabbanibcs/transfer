@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <h3>Current user: {{user}}</h3>
+
+    <div id="chat-log" class=''></div><br>
+    <input id="chat-message-input" type="text" size="100"><br>
+    <input id="chat-message-submit" type="button" value="Send">
+
+</div>
+    
+    {{ room_name|json_script:"room-name" }}
+    {{ recipient.id|json_script:"recipient" }}
+    <script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent);
+        const recipient = JSON.parse(document.getElementById('recipient').textContent);
+
+        const chatSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/chat/'
+            + roomName
+            + '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log(data);
+            data.message.map(v=>{
+                var chatLog=document.querySelector('#chat-log');
+                var pTag=document.createElement('p');
+                pTag.innerHTML=v.text
+                chatLog.appendChild(pTag);
+                //console.log(v.sender)
+                if(recipient==v.sender){
+                    // console.log('recipient matches sender')
+                    pTag.style.backgroundColor='red'
+                    pTag.style.color='white'
+
+                }else{
+                    pTag.classList.add('text-right')
+
+                    pTag.style.backgroundColor='blue'
+                    pTag.style.color='white'
+
+                }
+                
+                })
+        };
+
+        chatSocket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+        document.querySelector('#chat-message-input').focus();
+        document.querySelector('#chat-message-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#chat-message-submit').click();
+            }
+        };
+
+        document.querySelector('#chat-message-submit').onclick = function(e) {
+            const messageInputDom = document.querySelector('#chat-message-input');
+            const message = messageInputDom.value;
+            chatSocket.send(JSON.stringify({
+                'message': message,
+                'recipient':recipient
+            }));
+            messageInputDom.value = '';
+        };
+    </script>
+</body>
+</html>

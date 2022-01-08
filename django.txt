@@ -1,0 +1,338 @@
+
+# Create a virtual environment to isolate our package dependencies locally
+python3 -m venv env
+source env/bin/activate  # On Windows use `env\Scripts\activate`
+
+HTTPie—---- a user-friendly command-line HTTP client for the API era. It comes with JSON support, 
+syntax highlighting, persistent sessions, wget-like downloads, plugins, and more.
+
+docker
+--------
+docker build --tag blog-app .				 # build an image from Dockerfile
+docker run --publish 8000:8000 blog-app			# create & run container
+
+docker-compose build					# build an image 
+docker-compose run --rm web django-admin startproject college . # create & remove
+docker-compose up					# run container
+docker exec -it container_name /bin/bash		# execute command in container
+
+
+docker ps -a
+docker commit d24623d12117 rabbanibcs/blog:1		# create image from container
+docker push rabbanibcs/blog:1				# app_name==repository
+
+docker rename 8651c4e8f90a college			# rename container
+
+najmul bhi
+------
+docker-compose -f local.yml up
+
+
+"C:\Program Files\Docker\Docker\DockerCli.exe" -SwitchDaemon
+
+
+---------------------------------------
+arif1924
+------------------------
+{{view.kwargs.username}}---
+    def get_queryset(self):
+        user=get_object_or_404(User,username=self.kwargs.get('username'))
+        return Post.objects.filter(author=user).order_by('-date_posted')
+
+
+C:\>pip --version
+pip 21.0.1 from c:\python\python39\lib\site-packages\pip (python 3.9)
+------------------------------------------------------------------------
+C:\>pip install virtualenvwrapper-win
+-----------------------------------------------------------------------
+C:\>mkvirtualenv djangoenv
+ C:\Users\DOEL\Envs is not a directory, creating
+created virtual environment CPython3.9.2.final.0-64 in 8524ms
+  creator CPython3Windows(dest=C:\Users\DOEL\Envs\djangoenv, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\DOEL\AppData\Local\pypa\virtualenv)
+    added seed packages: pip==21.0.1, setuptools==54.1.2, wheel==0.36.2
+  activators Ba
+---------------------------------------------------------------------------
+(trydjango) C:\>pip install django==2.0.7
+-------------------------------------------------
+(trydjango) C:\>mkdir trydjango
+----------------------------------
+(trydjango) C:\trydjango>django-admin startproject newpro
+---------------------------------------
+pip install django-crispy-forms
+INSTALLED_APPS = [
+ 		  'crispy_forms',
+		  ]
+----------------------------------------
+pip install Pillow
+------------------------
+C:\Users\DOEL>Envs\django\Scripts\activate
+
+(django) C:\Users\DOEL>deactivate
+
+C:\Users\DOEL>workon django
+(django) C:\Users\DOEL>
+------------------------------------
+
+
+
+
+py manage.py makemigrations polls
+py manage.py sqlmigrate polls 0001
+py manage.py migrate
+py manage.py runserver
+
+
+-------------------------------------------------
+User.objects.all()
+Post.objects.first()
+User.objects.last()
+User.objects.filter(username='doel')
+User.objects.filter(username='doel').first()
+User.objects.get(pk=1)
+post=Post.objects.first()
+post.date_posted
+
+post.author
+post.author.email
+
+post.author.password
+Post.objects.filter(author=user.id)
+user.post_set.all()------------------------  #class name is Post but to fetch all post use 'post'
+user.post_set.create(title='Blog 3',content='content...blog 3')
+---------------------------------------------
+>>> from django.contrib.auth.models import User
+>>> user=User.objects.get(username='doel')
+>>> user.username
+'doel'
+>>> user.profile
+<Profile: doel Profile>
+>>> user.profile.image
+<ImageFieldFile: photos/004.jpg>
+>>> user.profile.image.width
+205
+>>> user.profile.image.height
+246
+>>> user.profile.image.url
+'/photos/004.jpg'
+>>>
+-------------------------------------------------------
+>>> import json
+>>> from blog.models import Post
+>>> with open('posts.json') as f:
+...     posts_json=json.load(f)
+...
+>>> for post in posts_json:
+...     post=Post(title=post['title'],content=post['content'],author_id=post['user_id'])
+...     post.save()
+
+------------------------------------------------
+loading fixture in django
+core/fixtures/school.json:
+manage.py loaddata school
+-------------------------------------
+aggregate  provides a dict
+------------------------------
+annotate provides list
+--------------------
+
+
+
+----------------------------------------
+
+--------------------------------------
+def arg_types(num,/,anytype,*,kwrs):
+
+    print(num)
+    print(anytype)
+    print(kwrs)
+
+arg_types(2,5,kwrs=9)
+-------------------------------------
+#replace function
+
+text='arif rabbani akanda'
+a=text.replace('a','o')
+print(a)
+print(text)
+------------------------------------
+#split function
+a=' arif.rabbani.akanda'
+list=a.split('.')
+print(list)
+-------------------------------
+#shortest looping
+[print(i) for i in range(5)]
+---------------------------------------
+#list function
+a=('a','b','c')
+
+def list(a):
+    b = []
+    for i in a:
+        b.append(i)
+    return b
+
+print(list(a))
+-----------------------------------------
+#ternary oprator
+a=5
+b=3
+print(a) if a<b else print(b)
+-------------------------------------------
+#class introduction
+import datetime
+
+class Person:
+    '''  name and birthday are string '''
+    def __init__(self,name,birthday):
+        self.name=name
+        self.birthday=birthday
+
+        name_pices=name.split(" ")
+        self.first_name=name_pices[0]
+        self.last_name=name_pices[-1]
+
+    def age(self):
+        yyyy = int(self.birthday[0:4])
+        mm = int(self.birthday[4:6])
+        dd = int(self.birthday[6:8])
+        today=datetime.date(2021,3,18)
+        dob=datetime.date(yyyy,mm,dd)
+        age_in_days=(today-dob).days
+        age=age_in_days//365
+        print(self.last_name,'is',age,'years old.')
+
+
+person1=Person('arif rabbani akanda', '19861031')
+print(person1.first_name,'- is the first name')
+print(person1.last_name,'- is the last name')
+print(person1.age())
+
+----------------------------------------------------
+ objects. Managers are only accessible via model classes, not the model instances.
+----------------------------------------------------
+
+
+Arguments sent with this signal:
+pre_init:
+sender- The model class that just had an instance created.
+args -  A list of positional arguments passed to __init__().
+kwargs -A dictionary of keyword arguments passed to __init__().
+
+post_init:
+sender As above: the model class that just had an instance created.
+instance The actual instance of the model that’s just been created.
+
+--------------------------------------------------------------------
+Every ModelForm also has a save() method. This method creates and saves a database object from the data bound to the form. 
+A subclass of ModelForm can accept an existing model instance as the keyword argument instance; 
+if this is supplied,  save() will update that instance. If it’s not supplied, save() will create a new instance
+------------------------------------------
+Specifying " model = Publisher" is shorthand for saying  "queryset = Publisher.objects.all()". 
+However, by using queryset to define a filtered list of objects you can be more specific 
+about the objects that will be visible in the view
+----------------
+>>> dic={'a':'A','b':'B'}
+>>> dic.get('a')
+'A'
+>>> dic.get('b')
+'B'
+--------------------
+request.user-
+An instance of AUTH_USER_MODEL representing the currently logged-in user.
+--------------------------------------------------------------------
+request.method-
+A string representing the HTTP method used in the request.-"POST"/"GET"
+--------------------------------------------------------------------
+Model metadata is “anything that’s not a field”, such as ordering options (ordering), 
+database table name (db_table), or human-readable singular and plural names (verbose_name 
+and verbose_name_plural). None are required, and adding class Meta to a model is 
+completely optional.
+-------------------------------------------------------------------------
+### Online shop with the following fucntionalities...
+  1. An anonymous user can add products to cart
+  2. User can search product 
+  3. User can select aproduct from dropdown menu, providing quantity can add to cart
+  4. If User provides a quantity that is more than stock, he/she gets warned.
+  5. Visiting cart and giving name, phone and email can complete the order
+  5. User is directed to a page where he/she can see order detail, can download a pdf copy of his Order.
+  6. pdf contains QR code , that has customers information.
+  7. Order detail is stored for future reference.
+  
+### How to run this application..
+  1. cd to the directory where requirements.txt is located.
+  2. activate your virtualenv.
+  3. run: pip install -r requirements.txt
+  4. run: python manage.py runserver
+  5. http://127.0.0.1:8000/shop/  -Visit this link to start the application
+
+models.py
+----------
+two fields have been added
+a static method “elo_rating” has been created 
+you can call it anywhere passing two team objects
+the function will calculate their rating aslo who will have the crown
+
+“ for testing purpose in index.html file, i added a form that takes two teams id
+view.py has a function named ‘ranking’ that gets two teams id and creates two team objects and then calls elo_rating method”
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
